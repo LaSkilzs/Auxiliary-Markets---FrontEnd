@@ -16,8 +16,8 @@ contract ERC20Token is ERC20Interface {
         symbol = _symbol;
     }
 
-    function addTotalSupply(address owner, uint amountOfTokens) public {
-        require(address(this) == owner, "Not valid addrress");
+    function addTotalSupply(address tokenContract, uint amountOfTokens) external  {
+        require(tokenContract != address(0), "Not valid addrress");
         _totalSupply += amountOfTokens;
     }
 

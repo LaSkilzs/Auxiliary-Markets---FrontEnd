@@ -34,10 +34,11 @@ contract Exchange  {
     }
 
     mapping(uint => Token)token;
+    mapping(string => address)public tokenAddress;
     uint8 tokenIndex = 0;
 
 
-    mapping(string => address) public tokenSymbolToAddress;
+    mapping(string => address)tokenSymbolToAddress;
 
     constructor()payable public{}
         // Management events
@@ -53,10 +54,18 @@ contract Exchange  {
 
 
     // Token Management
-    function addToken(string memory symbolName, address erc20TokenAddress) public returns(bool){
-        if(!hasToken(symbolName)){
-            tokenIndex++;
-            tokenSymbolToAddress[symbolName] = erc20TokenAddress;
+
+    function createToken( address erc20TokenAddress, string memory _symbolName) public returns(uint){
+       Token(erc20TokenAddress, _symbolName,0 ,0 ,0 ,0);
+       tokenIndex++;
+       tokenSymbolToAddress[_symbolName] = erc20TokenAddress;
+       tokenAddress[_symbolName] = erc20TokenAddress;
+    }
+
+    function addToken(string memory _symbolName, address erc20TokenAddress) public returns(bool){
+        if(!hasToken(_symbolName)){
+            createToken(erc20TokenAddress, _symbolName);
+            emit TokenAddedToSystem(tokenIndex, _symbolName, now);
             return true;
         }else{
             return false;
@@ -64,17 +73,15 @@ contract Exchange  {
 
     }
 
-    function updateTokenSupply(string memory symbolName, uint _amountOfTokens) public{
-        hasToken(symbolName);
-        address forToken = tokenSymbolToAddress[symbolName];
-        ERC20Token newToken = ERC20Token(forToken);
-        newToken.addTotalSupply(forToken, _amountOfTokens);
-        emit TokenAddedToSystem(tokenIndex, symbolName, now);
+    function updateTokenSupply(string calldata symbolName, uint _amountOfTokens) external {
+          require(tokenAddress[symbolName] != address(0), "invalid address");
+          address updateToken = tokenAddress[symbolName];
+          ERC20Token newToken = ERC20Token(updateToken);
+          newToken.addTotalSupply(updateToken, _amountOfTokens);
     }
 
     function hasToken(string memory symbolName) public view returns(bool){
      return tokenSymbolToAddress[symbolName] != address(0);
-
     }
 
 }
