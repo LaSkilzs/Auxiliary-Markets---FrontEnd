@@ -50,13 +50,14 @@ contract Exchange  {
 
 
     // Token Management
-
+    function hasToken(string memory symbolName) public view returns(bool){
+     tokenSymbolToAddress[symbolName] != address(0);
+    }
     function addToken(string memory symbolName, address erc20TokenAddress) public{
         hasToken(symbolName);
         tokenIndex++;
         tokenSymbolToAddress[symbolName] = erc20TokenAddress;
     }
-
     function updateTokenSupply(string memory symbolName, uint _amountOfTokens) public{
         hasToken(symbolName);
         address forToken = tokenSymbolToAddress[symbolName];
@@ -65,31 +66,33 @@ contract Exchange  {
         emit TokenAddedToSystem(tokenIndex, symbolName, now);
     }
 
-    function hasToken(string memory symbolName) public view returns(bool){
-     tokenSymbolToAddress[symbolName] != address(0);
-    }
+    // MoneyManagement
 
-    // function buyToken(string memory symbolName, uint priceInWei, uint amount) public{
-    //     // calculate priceInWei in this function keep amount
-    //     address currentToken = tokenSymbolToAddress[symbolName];
+    function getPriceToZap(string memory _symbol, uint amount) public returns(uint){}
+    function getZapPriceInWei(string memory _symbol, uint amount) public returns(uint){}
+    function getZapToPrice(string memory _symbol, uint amount) public returns(uint){}
+    function getWeiPriceInZap(string memory _symbol, uint amount) public returns(uint){}
 
-    //     // check make sure token is there
-    //     // call oracle to confirm price
-    //     // calculate priceInWei
-    //     // call approve && tranferFrom for both Zap and AssetToken
-    //     // update tokenSymbolToAddress of TokenSymbol
-    //      // update OrderBook
-    //     // update user average mapping.
-    //     // call buyOrderCreated
+    // Trade Management
+
+    // function getAssetPrice(string memory symbolName) public returns(uint){}
+
+    // function purchaseToken(string memory symbolName, uint amount) public{
+          // check approval for exchange to purchase tokens
+          // check allowance to ensure account has enough tokens
+          // convert currency
+          // Order  --- purchase tokens
+          // add token --- orderbook
+          // update token --- orderbook
     // }
 
-    // function sellToken(string memory symbolName,  uint amount) public{
+    // function cashOutToken(string memory symbolName,  uint amount) public{
     //     // calculate priceInWei in this function keep amount
     //     address currentToken = tokenSymbolToAddress[symbolName];
 
     //     // check make sure user has tokens to sell
     //     // call oracle to confirm price
-    //     // calcucate priceInWei
+    //     // calculate priceInWei
     //     // call approve && tranferFrom for both Zap and AssetToken
     //     // calculate difference using priceHistory
     //     // Access mainBondingCurver(withdrawal function)

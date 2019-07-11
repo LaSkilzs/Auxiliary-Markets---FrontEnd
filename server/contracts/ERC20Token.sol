@@ -9,12 +9,12 @@ contract ERC20Token is ERC20Interface {
     uint256 _totalSupply;
 
 
-    struct Price{
-        uint numTokensBought;
-        uint totalPaid;
-    }
+    // struct Price{
+    //     uint numTokensBought;
+    //     uint totalPaid;
+    // }
 
-    mapping(address => Price) userAveragePrice;
+    // mapping(address => Price) userAveragePrice;
     mapping(address => uint) public balances;
     mapping(address => mapping(address => uint)) public allowed;
 
