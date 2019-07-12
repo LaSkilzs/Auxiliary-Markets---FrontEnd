@@ -3,7 +3,7 @@ pragma solidity ^0.5.0;
 import "./ERC20Token.sol";
 
 contract Exchange  {
-   // create a function called calculatePriceInWei
+    // create a function called calculatePriceInWei
 
     struct Order{
         uint amountOfTokens;
@@ -33,12 +33,12 @@ contract Exchange  {
 
     }
 
-    mapping(uint => Token)token;
-    mapping(string => address)public tokenAddress;
+    mapping(uint => Token) token;
+    mapping(string => address) tokenAddress;
     uint8 tokenIndex = 0;
 
 
-    mapping(string => address)tokenSymbolToAddress;
+    mapping(string => address) tokenSymbolToAddress;
 
     constructor()payable public{}
         // Management events
@@ -53,13 +53,14 @@ contract Exchange  {
     event SellOrderCreated(uint indexed _symbolIndex, address indexed _who, uint _amountTokens, uint _priceInWei, uint _orderKey);
 
 
-    // Token Management
-
-    function createToken( address erc20TokenAddress, string memory _symbolName) public returns(uint){
-       Token(erc20TokenAddress, _symbolName,0 ,0 ,0 ,0);
+    // Token Managements
+    function createToken( address erc20TokenAddress, string memory _symbolName) internal returns(uint){
+       Token memory newToken = Token(erc20TokenAddress, _symbolName,0 ,0 ,0 ,0);
        tokenIndex++;
-       tokenSymbolToAddress[_symbolName] = erc20TokenAddress;
-       tokenAddress[_symbolName] = erc20TokenAddress;
+       token[tokenIndex] = newToken;
+       tokenSymbolToAddress[_symbolName] = newToken.tokenContract;
+       tokenAddress[_symbolName] = newToken.tokenContract;
+       return tokenIndex;
     }
 
     function addToken(string memory _symbolName, address erc20TokenAddress) public returns(bool){
@@ -81,7 +82,7 @@ contract Exchange  {
     }
 
     function hasToken(string memory symbolName) public view returns(bool){
-     return tokenSymbolToAddress[symbolName] != address(0);
+        return tokenSymbolToAddress[symbolName] != address(0);
     }
 
 }
