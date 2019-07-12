@@ -3,27 +3,22 @@ pragma solidity ^0.5.0;
 import "./ERC20Interface.sol";
 
 contract ERC20Token is ERC20Interface {
-    string public name;
+   string public name;
     string public symbol;
     uint8 public decimals = 10;
     uint256 _totalSupply;
 
-    address public _owner;
-
-    struct Price{
-        uint numTokensBought;
-        uint totalPaid;
-    }
-
-    mapping(address => Price) userAveragePrice;
     mapping(address => uint) public balances;
     mapping(address => mapping(address => uint)) public allowed;
 
-    constructor(string memory _name, string memory _symbol, uint amount, uint price) ERC20Interface() public {
-        _name = name;
-        _symbol = symbol;
-        _owner = msg.sender;
-        balances[_owner] = (price * amount)/100;
+    constructor(string memory _name, string memory _symbol)  public {
+        name = _name;
+        symbol = _symbol;
+    }
+
+    function addTotalSupply(address tokenContract, uint amountOfTokens) external  {
+        require(tokenContract != address(0), "Not valid addrress");
+        _totalSupply += amountOfTokens;
     }
 
     function totalSupply() external view returns(uint) {

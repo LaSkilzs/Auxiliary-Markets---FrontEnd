@@ -3,112 +3,86 @@ pragma solidity ^0.5.0;
 import "./ERC20Token.sol";
 
 contract Exchange  {
-    // create a function calleed calculatePriceInWei
-
-    address currentToken;
+    // create a function called calculatePriceInWei
 
     struct Order{
-        uint amount;
+        uint amountOfTokens;
         uint8 transactionType; // 0 buy --- 1 sell
-        address who;
+        address tokenOwner;
     }
 
-    mapping(uint => Order)orders;
-    uint orderIndex = 0;
+    struct OrderBook{
+        uint currentMarketPrice;
+        uint timestamp;
 
-    // mapping(address => ERC20Token)tokenAddress;
-    mapping(string => address)tokenSymbolToAddress;
+        mapping(uint => Order) orders;
+        uint order_key;
+    }
 
-    // Management events
-    event TokenAddedToSystem(uint _symbol, string _token, uint _timestamp);
+    struct Token {
+        address tokenContract;
+        string symbolName;
+
+        mapping(uint => OrderBook) buyBook;
+        uint currentBuyPrice;
+        uint previousBuyPrice;
+
+        mapping(uint => OrderBook) sellBook;
+        uint currentSellPrice;
+        uint previousSellPrice;
+
+    }
+
+    mapping(uint => Token) token;
+    mapping(string => address) tokenAddress;
+    uint8 tokenIndex = 0;
+
+
+    mapping(string => address) tokenSymbolToAddress;
+
+    constructor()payable public{}
+        // Management events
+    event TokenAddedToSystem(uint _symbolIndex, string _tokenSymbol, uint _timestamp);
 
     // Deposit/Withdrawal events
-    /*
-    event DepositForTokenReceived(address indexed _from, uint indexed _symbol, uint _amount, uint _timestamp);
-    event WithdrawalToken(address indexed _to, uint indexed _symbol, uint _amount, uint _timestamp);
-    */
+    event DepositForTokenReceived(address indexed _from, uint indexed _symbolIndex, uint _amount, uint _timestamp);
+    event WithdrawalToken(address indexed _to, uint indexed _symbolIndex, uint _amount, uint _timestamp);
 
-    // Trading/Order Events
-    event BuyOrderCreated(uint indexed _symbol, address indexed _who, uint _amountTokens, uint _orderKey);
-    event SellOrderCreated(uint indexed _symbol, address indexed _who, uint _amountTokens, uint _orderKey);
+       // Trading/Order Events
+    event BuyOrderCreated(uint indexed _symbolIndex, address indexed _who, uint _amountTokens, uint _priceInWei, uint _orderKey);
+    event SellOrderCreated(uint indexed _symbolIndex, address indexed _who, uint _amountTokens, uint _priceInWei, uint _orderKey);
 
 
-    // Token Management
-    function addToken(string memory _symbol, address erc20TokenAddress) public /*ownerOnly*/ {
-        require(!hasToken(_symbol), "token has already been added");
-        tokenSymbolToAddress[_symbol] = erc20TokenAddress;
+    // Token Managements
+    function createToken( address erc20TokenAddress, string memory _symbolName) internal returns(uint){
+       Token memory newToken = Token(erc20TokenAddress, _symbolName,0 ,0 ,0 ,0);
+       tokenIndex++;
+       token[tokenIndex] = newToken;
+       tokenSymbolToAddress[_symbolName] = newToken.tokenContract;
+       tokenAddress[_symbolName] = newToken.tokenContract;
+       return tokenIndex;
     }
 
-    function hasToken(string memory _symbol) public view returns(bool){
-        return (tokenSymbolToAddress[_symbol] != address(0));
+    function addToken(string memory _symbolName, address erc20TokenAddress) public returns(bool){
+        if(!hasToken(_symbolName)){
+            createToken(erc20TokenAddress, _symbolName);
+            emit TokenAddedToSystem(tokenIndex, _symbolName, now);
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
-    function getTokenPriceInWei(string memory _symbol, uint amount) public returns(uint) {
-        // call oracle to confirm price
-            // priceOfWeiZap = queryProvider(...);
-            // priceOfCurrentToken = queryProvider(...);
-        
-        // calcucate priceInWei
-            // priceInWei = priceOfCurrentToken / priceOfWeiZap;
+    function updateTokenSupply(string calldata symbolName, uint _amountOfTokens) external {
+          require(tokenAddress[symbolName] != address(0), "invalid address");
+          address updateToken = tokenAddress[symbolName];
+          ERC20Token newToken = ERC20Token(updateToken);
+          newToken.addTotalSupply(updateToken, _amountOfTokens);
     }
 
-    function updateUserAveragePrice(address user, string memory _symbol, uint amount, uint priceInWei) /*ownerOnly*/ {
-         // update user average mapping
-         address currentToken = tokenSymbolToAddress[_symbol];
-            // currentToken.userAveragePrice[user].numTokensBought += amount;
-            // currentToken.userAveragePrice[user].numTokensBought += priceInWei;
+    function hasToken(string memory symbolName) public view returns(bool){
+        return tokenSymbolToAddress[symbolName] != address(0);
     }
 
-    function buyToken(string memory _symbol, uint priceInWei, uint amount) public{
-        // calculate priceInWei in this function keep amount
-        address currentToken = tokenSymbolToAddress[_symbol];
-
-        // check make sure token is there
-        require(currentToken != address(0), "Token not recognized");
-
-        getTokenPriceInWei(_symbol, amount);
-        
-        // call approve && tranferFrom for both Zap and AssetToken
-            // zapToken.approve(this, priceInWei);
-            // require(zapToeken.transferFrom(msg.sender, this, priceInWei));
-
-            // currentToken.approve(this, amount);
-            // require(currentToken.transferFrom(msg.sender, this, amount));
-        
-        // update tokenSymbolToAddress of TokenSymbol
-
-        updateUserAveragePrice(msg.sender, _symbol, amount);
-
-        orders[orderIndex] = order(amount, 0, msg.sender);
-        oderIndex++;
-        emit BuyOrderCreated(_symbol, msg.sender, amount, orderIndex - 1);
-    }
-
-    function sellToken(string memory _symbol,  uint amount) public{
-        // calculate priceInWei in this function keep amount
-        currentToken = tokenSymbolToAddress[_symbol];
-        
-        // check make sure user has tokens to sell
-        
-        uint priceInWei = getTokenPriceInWei(_symbol, amount);
-        
-        // call approve && tranferFrom for both Zap and AssetToken
-        
-        // calculate difference using priceHistory
-            // int priceDifference = priceInWei - currentToken.userAveragePrice[msg.sender]
-        
-        // Access mainBondingCurver(withdrawal function)
-        
-        // Update user address
-        
-        // update tokenSymbolToAddress of TokenSymbol
-        
-        updateUserAveragePrice(msg.sender, _symbol, amount, priceInWei);
-
-        orders[orderIndex] = order(amount, 1, msg.sender);
-        oderIndex++;
-        emit BuyOrderCreated(_symbol, msg.sender, amount, orderIndex - 1);
-        
-        emit SellOrderCreated(_symbol, msg.sender, amount, now);
-    }
 }
