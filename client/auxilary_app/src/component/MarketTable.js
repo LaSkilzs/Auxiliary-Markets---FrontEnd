@@ -12,7 +12,7 @@ const MarketTable = props => {
   console.log(props);
   const useStyles = makeStyles(() => ({
     root: {
-      marginTop: 100,
+      marginTop: 50,
       marginLeft: 200,
       width: "80rem"
     },
@@ -28,7 +28,7 @@ const MarketTable = props => {
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
-              <TableCell align="right">ID</TableCell>
+              <TableCell align="right">Id</TableCell>
               <TableCell align="right">Name</TableCell>
               <TableCell align="right">MarketCap</TableCell>
               <TableCell align="right">Circulating supply</TableCell>

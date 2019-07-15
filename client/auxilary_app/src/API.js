@@ -7,19 +7,19 @@ class API {
     return data;
   }
 
-  static async getCurrencies() {
-    const response = await fetch(
-      "https://api.nomics.com/v1/currencies/ticker?key=3f85c5b3046536a81caaad9cc9ee1b6f&interval=1d,30d&convert=EUR&limit=50"
-    );
-    const data = await response.json();
-    let result = [];
-    let currencies = data;
-    for (let i = 0; i < 100; i++) {
-      result.push(currencies[i]);
-    }
-    console.log(result);
-    return result;
-  }
+  // static async getCurrencies() {
+  // const response = await fetch(
+  //   "https://api.nomics.com/v1/currencies/ticker?key=3f85c5b3046536a81caaad9cc9ee1b6f&interval=1d,30d&convert=EUR&limit=50"
+  // );
+  // const data = await response.json();
+  // let result = [];
+  // let currencies = data;
+  // for (let i = 0; i < 100; i++) {
+  //   result.push(currencies[i]);
+  // }
+  // console.log(result);
+  // return result;
+  // }
 
   static async getCurrencyMetaData() {
     const response = await fetch(
