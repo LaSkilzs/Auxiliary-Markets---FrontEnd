@@ -8,6 +8,11 @@ import Wallet from "./Wallet";
 import Watchlist from "./Watchlist";
 
 class Dashboard extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
     return (
       <React.Fragment>
