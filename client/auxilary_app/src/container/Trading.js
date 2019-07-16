@@ -1,10 +1,11 @@
 import React from "react";
+import TradingGrid from "../component/TradingGrid";
 
 const Trading = () => {
   return (
-    <div>
-      <h1>Trading</h1>
-    </div>
+    <React.Fragment>
+      <TradingGrid />
+    </React.Fragment>
   );
 };
 
