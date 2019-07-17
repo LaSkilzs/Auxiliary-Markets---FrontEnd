@@ -10,10 +10,10 @@ class Exchange extends React.Component {
     this.state = { currencies: [], showButton: true };
   }
   async componentDidMount() {
-    // API.getCurrencies().then(data => {
-    //   this.setState({ currencies: data });
-    //   console.log(data);
-    // });
+    API.getCurrencies().then(data => {
+      this.setState({ currencies: data });
+      console.log(data);
+    });
   }
   render() {
     const displayTabs = [
