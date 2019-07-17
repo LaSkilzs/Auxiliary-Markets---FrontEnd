@@ -14,12 +14,24 @@ class Dashboard extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <React.Fragment>
         <SideNav />
         <Switch>
-          <Route path="/home" component={MainGrid} />
+          <Route
+            path="/home"
+            render={routerProps => (
+              <MainGrid userInfo={this.props} {...routerProps} />
+            )}
+          />
           <Route path="/exchange" component={Exchange} />
+          <Route
+            path="/exchange"
+            render={routerProps => (
+              <Exchange userInfo={this.props} {...routerProps} />
+            )}
+          />
           <Route path="/trading" component={Trading} />
           <Route path="/wallet" component={Wallet} />
           <Route path="/watchlist" component={Watchlist} />

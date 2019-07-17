@@ -181,9 +181,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\n\ninterface ERC20Interface {\n    function transfer(address to, uint tokens)  external returns(bool success);\n    function transferFrom(address from, address tokenOwner, uint value)  external returns(bool success);\n    function balanceOf(address tokenOwner)  external view returns(uint balance);\n    function approve(address spender, uint tokens)  external returns(bool success);\n    function allowance(address tokenHolder, address spender)  external view returns(uint);\n    function totalSupply() external view returns(uint);\n\n    event Transfer(address indexed from, address indexed to, uint tokens);\n    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);\n}\n",
-  "sourcePath": "/Users/lafountain/Desktop/BitCoin Inc./Auxilary Markets/server/contracts/ERC20Interface.sol",
+  "sourcePath": "/Users/lafountain/Desktop/BitCoin Inc./Auxilary Markets/auxilary_markets/contracts/ERC20Interface.sol",
   "ast": {
-    "absolutePath": "/Users/lafountain/Desktop/BitCoin Inc./Auxilary Markets/server/contracts/ERC20Interface.sol",
+    "absolutePath": "/Users/lafountain/Desktop/BitCoin Inc./Auxilary Markets/auxilary_markets/contracts/ERC20Interface.sol",
     "exportedSymbols": {
       "ERC20Interface": [
         68
@@ -1016,7 +1016,7 @@
     "src": "0:713:0"
   },
   "legacyAST": {
-    "absolutePath": "/Users/lafountain/Desktop/BitCoin Inc./Auxilary Markets/server/contracts/ERC20Interface.sol",
+    "absolutePath": "/Users/lafountain/Desktop/BitCoin Inc./Auxilary Markets/auxilary_markets/contracts/ERC20Interface.sol",
     "exportedSymbols": {
       "ERC20Interface": [
         68
@@ -1854,7 +1854,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.9",
-  "updatedAt": "2019-07-11T19:28:23.416Z",
+  "updatedAt": "2019-07-17T16:38:42.679Z",
   "devdoc": {
     "methods": {}
   },

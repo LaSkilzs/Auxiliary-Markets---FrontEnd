@@ -1,6 +1,7 @@
 import React from "react";
 import MarketTable from "../component/MarketTable";
 import InfoGrid from "../component/InfoGrid";
+import Loading from "../component/Loading";
 import API from "../API";
 
 class Exchange extends React.Component {
@@ -8,12 +9,12 @@ class Exchange extends React.Component {
     super();
     this.state = { currencies: [], showButton: true };
   }
-  // async componentDidMount() {
-  //   API.getCurrencies().then(data => {
-  //     this.setState({ currencies: data });
-  //     console.log(data);
-  //   });
-  // }
+  async componentDidMount() {
+    API.getCurrencies().then(data => {
+      this.setState({ currencies: data });
+      console.log(data);
+    });
+  }
   render() {
     const displayTabs = [
       "Currency",
@@ -30,7 +31,11 @@ class Exchange extends React.Component {
           buttonData={buttonData}
           showButton={this.state.showButton}
         />
-        <MarketTable currency={this.state.currencies} />
+        {this.state.currrencies ? (
+          <MarketTable currency={this.state.currencies} />
+        ) : (
+          <Loading />
+        )}
       </React.Fragment>
     );
   }
