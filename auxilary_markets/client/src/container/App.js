@@ -2,46 +2,39 @@ import React from "react";
 import "./css/App.css";
 import Navbar from "../component/Navbar";
 import Dashboard from "./Dashboard";
+// import getWeb3 from "../utils/getWeb3";
 import Web3 from "web3";
+import TruffleContract from "truffle-contract";
+import AuxMarket from "../contracts/build/Exchange.json";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      isConnected: false,
-      peers: 0,
-      version: ""
+      address: "",
+      weiBalance: "",
+      ethBalance: ""
     };
-    // this.web3 = new Web3(
-    //   window.web3.currentProvider || "https://localhost:8545"
-    // );
-    this.web3 = new Web3(
-      new Web3.providers.HttpProvider("https://localhost:8545")
-    );
+    this.web3 = new Web3(window.ethereum);
   }
 
-  componentDidMount() {
-    // if (this.web3 && this.web3.isConnected()) {
-    //   this.setState({ isConnected: true });
-    //   if (this.web3.net.listening) {
-    //     this.setState({ peers: this.web3.net.peerCount });
-    //   }
-    //   this.setState({ version: this.web3.version.node });
-    // }
+  async componentDidMount() {
+    this.web3.eth.getAccounts().then(data => {
+      let address = data[0];
+      this.web3.eth.getBalance(address, (error, balance) => {
+        let bal = balance.toString();
+        let eth = this.web3.utils.fromWei(bal, "ether");
+        this.setState({ address, weiBalance: bal, ethBalance: eth });
+      });
+    });
   }
 
   render() {
-    // console.log(this.web3.isConnected());
-    console.log(this.web3);
-    console.log(window.ethereum);
-    console.log(window.ethereum.enable());
-    // console.log(this.web3.eth.defaultAccount().then(data => console.log(data)));
-    // console.log(this.web3.eth.getBalance().then(data => console.log(data)));
-    // console.log(this.web3.eth.net.isListening.then(console.log));
+    console.log(this.state);
     return (
       <div className="app">
         <Navbar />
-        <Dashboard />
+        <Dashboard userInfo={this.state} />
       </div>
     );
   }

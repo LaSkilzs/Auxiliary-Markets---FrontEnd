@@ -16,23 +16,34 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const MainGrid = () => {
+const MainGrid = props => {
   const classes = useStyles();
+  const { address, weiBalance, ethBalance } = props.userInfo.userInfo;
+  // console.log(props.userInfo.address);
   return (
     <React.Fragment>
       <Grid container spacing={3} className={classes.grid}>
-        <Grid item xs={3}>
-          <Paper style={{ height: "10vh" }}>Account Balance</Paper>
+        <Grid item xs={4}>
+          <Paper style={{ height: "10vh" }}>
+            <h2>Account Balance</h2>
+            <h4>{address}</h4>
+          </Paper>
         </Grid>
-        <Grid item xs={3}>
-          <Paper style={{ height: "10vh" }}>Last Day Revenue</Paper>
+        <Grid item xs={4}>
+          <Paper style={{ height: "10vh" }}>
+            <h2>Balance in Wei </h2>
+            <h4>{weiBalance}</h4>
+          </Paper>
         </Grid>
-        <Grid item xs={3}>
-          <Paper style={{ height: "10vh" }}>Revenue this Month</Paper>
+        <Grid item xs={4}>
+          <Paper style={{ height: "10vh" }}>
+            <h2>Balance in Ether</h2>
+            <h4>{ethBalance}</h4>
+          </Paper>
         </Grid>
-        <Grid item xs={3}>
+        {/* <Grid item xs={3}>
           <Paper style={{ height: "10vh" }}>Revenue this year</Paper>
-        </Grid>
+        </Grid> */}
         <Grid item xs={9}>
           <Paper style={{ height: "50vh" }}>Zap Chart</Paper>
         </Grid>
