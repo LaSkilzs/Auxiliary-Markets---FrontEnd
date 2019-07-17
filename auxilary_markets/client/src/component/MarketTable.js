@@ -9,7 +9,6 @@ import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
 
 const MarketTable = props => {
-  console.log(props);
   const useStyles = makeStyles(() => ({
     root: {
       marginTop: 50,
@@ -40,7 +39,6 @@ const MarketTable = props => {
           </TableHead>
           <TableBody>
             {props.currency.map(currencies => {
-              console.log(currencies);
               return (
                 <TableRow key={currencies.id}>
                   <TableCell align="right">{currencies.id}</TableCell>
