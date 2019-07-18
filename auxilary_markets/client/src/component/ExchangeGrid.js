@@ -9,12 +9,12 @@ import Divider from "@material-ui/core/Divider";
 const useStyles = makeStyles(theme => ({
   grid: {
     marginTop: 50,
-    marginLeft: 200,
+    marginLeft: 260,
     width: "80rem"
   },
   subGrid: {
     marginTop: 60,
-    marginLeft: 200,
+    marginLeft: 260,
     width: "80rem"
   },
   innerContainer: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     padding: "1.3rem"
   }
 }));
-const ExchangeGrid = () => {
+const ExchangeGrid = props => {
   const classes = useStyles();
   return (
     <Grid container spacing={2} className={classes.grid}>

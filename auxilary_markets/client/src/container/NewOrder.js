@@ -3,33 +3,33 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import WDForm1 from "../component/WDForm1";
-import WDForm2 from "../component/WDForm2";
+import Form from "./Form";
+import OrderBook from "../component/OrderBook";
 
 const useStyles = makeStyles(theme => ({
   grid: {
-    marginTop: 30,
-    marginLeft: 200,
+    marginTop: 20,
+    marginLeft: 260,
     width: "80rem"
   },
-  grid2: {
+  grid1: {
     marginTop: 20,
-    marginLeft: 200,
+    marginLeft: 260,
     width: "80rem"
   },
   subGrid: {
-    marginTop: 40,
-    marginLeft: 200,
+    marginTop: 60,
+    marginLeft: 260,
     width: "80rem"
   },
   innerContainer: {
     marginTop: 10
   },
   paper: {
-    height: "17rem"
+    height: "23rem"
   },
-  paper2: {
-    height: "12rem"
+  paper1: {
+    height: "8rem"
   },
   moneyContainer: {
     marginTop: 60,
@@ -40,41 +40,45 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Deposit = props => {
+const NewOrder = props => {
   const classes = useStyles();
   return (
     <div>
       <Typography
         variant="h3"
-        style={{ marginTop: 100, textAlign: "left", marginLeft: 200 }}
+        style={{ marginTop: 100, marginLeft: 260, textAlign: "left" }}
       >
-        Distributed Token Exchange
+        New Order
       </Typography>
       <Grid container spacing={2} className={classes.grid}>
         <Grid item md={6}>
           <Paper className={classes.paper}>
-            <h2>Deposit Token</h2>
-            <WDForm2 btnName={"Deposit Token"} color={"secondary"} />
+            <h2>Buy Token</h2>
+            <Form btnName={"Buy Token"} color={"primary"} />
           </Paper>
         </Grid>
         <Grid item md={6}>
-          <Paper className={classes.paper2}>
-            <h2>Deposit Ether</h2>
-            <WDForm1 btnName={"Deposit Ether"} color={"primary"} />
+          <Paper className={classes.paper}>
+            <h2>Sell Token</h2>
+            <Form btnName={"Sell Token"} color={"secondary"} />
           </Paper>
         </Grid>
       </Grid>
-      <Grid container spacing={2} className={classes.grid2}>
+      <Typography
+        variant="h4"
+        style={{ marginTop: 20, textAlign: "left", marginLeft: 260 }}
+      >
+        OrderBook
+      </Typography>
+      <Grid container spacing={2} className={classes.grid1}>
         <Grid item md={6}>
-          <Paper className={classes.paper}>
-            <h2>Withdraw Token</h2>
-            <WDForm2 btnName={"Withdraw Token"} color={"secondary"} />
+          <Paper className={classes.paper1}>
+            <OrderBook name="Bid" />
           </Paper>
         </Grid>
         <Grid item md={6}>
-          <Paper className={classes.paper2}>
-            <h2>Withdraw Ether</h2>
-            <WDForm1 btnName={"Withdraw Ether"} color={"primary"} />
+          <Paper className={classes.paper1}>
+            <OrderBook name="Ask" />
           </Paper>
         </Grid>
       </Grid>
@@ -82,4 +86,4 @@ const Deposit = props => {
   );
 };
 
-export default Deposit;
+export default NewOrder;

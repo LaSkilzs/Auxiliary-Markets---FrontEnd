@@ -7,13 +7,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Watchlist = props => {
+const NewExchangeAccount = props => {
   const classes = useStyles();
   return (
     <div>
-      <h1 className={classes.root}>Watchlist</h1>
+      <h1 className={classes.root}>New Exchange Account</h1>
     </div>
   );
 };
 
-export default Watchlist;
+export default NewExchangeAccount;

@@ -3,24 +3,32 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Form from "./Form";
+import AdminForm from "../component/AdminForm";
 
 const useStyles = makeStyles(theme => ({
   grid: {
-    marginTop: 50,
+    marginTop: 30,
     marginLeft: 200,
     width: "80rem"
   },
+  grid2: {
+    marginTop: 20,
+    marginLeft: 260,
+    width: "80rem"
+  },
   subGrid: {
-    marginTop: 60,
-    marginLeft: 200,
+    marginTop: 40,
+    marginLeft: 260,
     width: "80rem"
   },
   innerContainer: {
     marginTop: 10
   },
   paper: {
-    height: "27rem"
+    height: "17rem"
+  },
+  paper2: {
+    height: "12rem"
   },
   moneyContainer: {
     marginTop: 60,
@@ -31,27 +39,22 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Withdraw = props => {
+const ExchangeManagement = props => {
   const classes = useStyles();
   return (
     <div>
       <Typography
         variant="h3"
-        style={{ marginTop: 100, marginLeft: 200, textAlign: "left" }}
+        style={{ marginTop: 150, textAlign: "left", marginLeft: 260 }}
       >
-        New Order
+        Update Exchange
       </Typography>
-      <Grid container spacing={2} className={classes.grid}>
-        <Grid item md={6}>
-          <Paper className={classes.paper}>
-            <h2>Buy Token</h2>
-            <Form btnName={"Buy Token"} color={"primary"} />
-          </Paper>
-        </Grid>
-        <Grid item md={6}>
-          <Paper className={classes.paper}>
-            <h2>Sell Token</h2>
-            <Form btnName={"Sell Token"} color={"secondary"} />
+
+      <Grid container spacing={2} className={classes.grid2}>
+        <Grid item md={12}>
+          <Paper className={classes.paper2}>
+            <h2>Add Token to the Exchange</h2>
+            <AdminForm btnName={"add token to exchange"} />
           </Paper>
         </Grid>
       </Grid>
@@ -59,4 +62,4 @@ const Withdraw = props => {
   );
 };
 
-export default Withdraw;
+export default ExchangeManagement;

@@ -2,7 +2,6 @@ import React from "react";
 import "./css/App.css";
 import Navbar from "../component/Navbar";
 import Dashboard from "./Dashboard";
-// import getWeb3 from "../utils/getWeb3";
 import Web3 from "web3";
 import TruffleContract from "truffle-contract";
 import AuxMarket from "../contracts/build/Exchange.json";
@@ -30,6 +29,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.web3);
     console.log(this.state);
     return (
       <div className="app">

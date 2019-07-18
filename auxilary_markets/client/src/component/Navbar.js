@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar, makeStyles, Typography } from "@material-ui/core";
 
-const drawerWidth = 160;
+const drawerWidth = 260;
 
 const useStyles = makeStyles(theme => ({
   navbar: {
