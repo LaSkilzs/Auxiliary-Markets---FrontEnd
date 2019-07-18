@@ -5,17 +5,18 @@ import { Link } from "react-router-dom";
 
 const sideLinks = [
   [<Link to="/home">Home</Link>, "home"],
-  [<Link to="/exchange">Exchange</Link>, "store"],
+  [<Link to="/exchange">Exchange</Link>, "money"],
   [<Link to="/wallet">Wallet</Link>, "account_balance_wallet"],
-  ["Withdraw", "card_giftcard"],
-  ["Deposit", "payment"],
+  [<Link to="withdraw">Withdraw</Link>, "card_giftcard"],
+  [<Link to="/deposit">Deposit</Link>, "payment"],
   [<Link to="/trading">Trading</Link>, "euro_symbol"],
-  ["News", "web"],
-  ["Watchlist", "format_list_numbered"],
-  ["Portfolio", "work"]
+  [<Link to="news">News</Link>, "web"],
+  [<Link to="/watchlist">Watchlist</Link>, "format_list_numbered"],
+  [<Link to="portfolio">Portfolio</Link>, "work"],
+  [<Link to="/admin">Admin</Link>, "business_center"]
 ];
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const useStyles = makeStyles(theme => ({
   drawer: {

@@ -7,11 +7,11 @@ import API from "../API";
 class Exchange extends React.Component {
   constructor() {
     super();
-    this.state = { currencies: [], showButton: true };
+    this.state = { currencies: [], showButton: true, loading: false };
   }
   async componentDidMount() {
     API.getCurrencies().then(data => {
-      this.setState({ currencies: data });
+      this.setState({ currencies: data, loading: true });
       console.log(data);
     });
   }
@@ -31,7 +31,7 @@ class Exchange extends React.Component {
           buttonData={buttonData}
           showButton={this.state.showButton}
         />
-        {this.state.currrencies ? (
+        {this.state.loading ? (
           <MarketTable currency={this.state.currencies} />
         ) : (
           <Loading />
