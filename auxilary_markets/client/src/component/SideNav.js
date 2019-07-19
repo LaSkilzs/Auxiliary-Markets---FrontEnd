@@ -50,19 +50,19 @@ const sideLinks = [
     "receipt"
   ],
   [
-    <Link to="/news" style={{ color: "white" }}>
+    <Link to="/home" style={{ color: "white" }}>
       News
     </Link>,
     "web"
   ],
   [
-    <Link to="/watchlist" style={{ color: "white" }}>
+    <Link to="/home" style={{ color: "white" }}>
       Watchlist
     </Link>,
     "format_list_numbered"
   ],
   [
-    <Link to="/portfolio" style={{ color: "white" }}>
+    <Link to="/home" style={{ color: "white" }}>
       Portfolio
     </Link>,
     "pie_chart"

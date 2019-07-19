@@ -18,14 +18,14 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    this.web3.eth.getAccounts().then(data => {
-      let address = data[0];
-      this.web3.eth.getBalance(address, (error, balance) => {
-        let bal = balance.toString();
-        let eth = this.web3.utils.fromWei(bal, "ether");
-        this.setState({ address, weiBalance: bal, ethBalance: eth });
-      });
-    });
+    // this.web3.eth.getAccounts().then(data => {
+    //   let address = data[0];
+    //   this.web3.eth.getBalance(address, (error, balance) => {
+    //     let bal = balance.toString();
+    //     let eth = this.web3.utils.fromWei(bal, "ether");
+    //     this.setState({ address, weiBalance: bal, ethBalance: eth });
+    //   });
+    // });
   }
 
   render() {
