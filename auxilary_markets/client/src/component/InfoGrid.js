@@ -3,10 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import TabButton from "../component/TabButton";
+import red from "@material-ui/core/colors/red";
+
+const primary = red[700];
 
 const useStyles = makeStyles(theme => ({
   grid: {
-    marginTop: 100,
+    marginTop: 150,
     marginLeft: 260,
     width: "80rem"
   },
@@ -45,7 +48,7 @@ const InfoGrid = props => {
                   </Grid>
                 ) : (
                   <div>
-                    <h3>{header} Amount:</h3>
+                    <h3 style={{ color: primary }}>{header} Amount:</h3>
                     <h1>{props.amount || 0}</h1>
                   </div>
                 )}

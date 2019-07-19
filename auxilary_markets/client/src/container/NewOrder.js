@@ -8,13 +8,13 @@ import OrderBook from "../component/OrderBook";
 
 const useStyles = makeStyles(theme => ({
   grid: {
-    marginTop: 20,
-    marginLeft: 260,
+    marginTop: 50,
+    marginLeft: 280,
     width: "80rem"
   },
   grid1: {
     marginTop: 20,
-    marginLeft: 260,
+    marginLeft: 280,
     width: "80rem"
   },
   subGrid: {
@@ -46,7 +46,7 @@ const NewOrder = props => {
     <div>
       <Typography
         variant="h3"
-        style={{ marginTop: 100, marginLeft: 260, textAlign: "left" }}
+        style={{ marginTop: 150, marginLeft: 280, textAlign: "left" }}
       >
         New Order
       </Typography>
@@ -54,19 +54,19 @@ const NewOrder = props => {
         <Grid item md={6}>
           <Paper className={classes.paper}>
             <h2>Buy Token</h2>
-            <Form btnName={"Buy Token"} color={"primary"} />
+            <Form btnName={"Buy Token"} color={"#388e3c"} />
           </Paper>
         </Grid>
         <Grid item md={6}>
           <Paper className={classes.paper}>
             <h2>Sell Token</h2>
-            <Form btnName={"Sell Token"} color={"secondary"} />
+            <Form btnName={"Sell Token"} color={"#d32f2f"} />
           </Paper>
         </Grid>
       </Grid>
       <Typography
         variant="h4"
-        style={{ marginTop: 20, textAlign: "left", marginLeft: 260 }}
+        style={{ marginTop: 20, textAlign: "left", marginLeft: 280 }}
       >
         OrderBook
       </Typography>

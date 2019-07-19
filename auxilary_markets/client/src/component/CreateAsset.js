@@ -11,7 +11,8 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 100
   },
   paper: {
-    height: "40rem"
+    marginTop: 100,
+    height: "55rem"
   }
 }));
 
@@ -23,9 +24,9 @@ const CreateAsset = props => {
         <Typography
           variant={"h4"}
           component={"h4"}
-          style={{ padding: "1.2rem", margin: "auto", marginTop: 20 }}
+          style={{ padding: "5rem", margin: "auto", marginTop: 20 }}
         >
-          New Asset
+          Create New Asset
         </Typography>
         <form noValidate autoComplete="off">
           <TextField

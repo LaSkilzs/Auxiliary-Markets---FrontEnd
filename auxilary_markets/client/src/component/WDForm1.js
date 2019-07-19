@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 
 const WDForm1 = props => {
   return (
-    <div>
+    <React.Fragment>
       <form noValidate autoComplete="off">
         <TextField
           label="Amount In Ether"
@@ -25,7 +25,7 @@ const WDForm1 = props => {
           {props.btnName}
         </Button>
       </form>
-    </div>
+    </React.Fragment>
   );
 };
 

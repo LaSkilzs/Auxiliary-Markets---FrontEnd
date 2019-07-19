@@ -7,7 +7,8 @@ const useStyles = makeStyles(theme => ({
     width: "50rem",
     margin: "auto",
     fontSize: "1.3rem",
-    marginTop: "3rem"
+    marginTop: "3rem",
+    marginLeft: 280
   }
 }));
 

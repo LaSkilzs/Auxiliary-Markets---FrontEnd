@@ -12,7 +12,7 @@ const MarketTable = props => {
   const useStyles = makeStyles(() => ({
     root: {
       marginTop: 50,
-      marginLeft: 200,
+      marginLeft: 280,
       width: "80rem"
     },
     table: {
