@@ -35,13 +35,13 @@ const sideLinks = [
     <Link to="/token_exchange" style={{ color: "white" }}>
       Token Exchange
     </Link>,
-    "monetization_on"
+    "euro_symbol"
   ],
   [
     <Link to="/token_management" style={{ color: "white" }}>
       Token Management
     </Link>,
-    "euro_symbol"
+    "monetization_on"
   ],
   [
     <Link to="/new_order" style={{ color: "white" }}>

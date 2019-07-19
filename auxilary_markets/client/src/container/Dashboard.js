@@ -59,7 +59,7 @@ class Dashboard extends React.Component {
           <Route
             path="/admin"
             render={routerProps => (
-              <Admin userInfo={this.props} {...routerProps} />
+              <Admin adminInfo={this.props} {...routerProps} />
             )}
           />
           <Route path="/exchange_management" component={ExchangeManagement} />

@@ -2,17 +2,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-// import red from "@material-ui/core/colors/red";
 
-// const primary = red[700];
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "5rem"
-    // color: primary
   },
-  root1: {
-    // color: primary
-  },
+  root1: {},
   paper: {
     height: "24rem",
     width: "80rem",

@@ -25,7 +25,6 @@ const useStyles = makeStyles(theme => ({
 
 const MainGrid = props => {
   const classes = useStyles();
-  console.log(props.showSignup);
   return (
     <Grid container className={classes.grid}>
       <Grid item lg={6}>
