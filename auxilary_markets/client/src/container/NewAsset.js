@@ -4,7 +4,7 @@ import CreateAsset from "../component/CreateAsset";
 
 const NewAsset = props => {
   return (
-    <div>
+    <React.Fragment>
       <Typography
         variant="h3"
         style={{
@@ -17,7 +17,7 @@ const NewAsset = props => {
         Create AssetToken
       </Typography>
       <CreateAsset />
-    </div>
+    </React.Fragment>
   );
 };
 
