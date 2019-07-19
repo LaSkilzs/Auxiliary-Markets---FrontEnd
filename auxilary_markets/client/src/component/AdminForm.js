@@ -33,7 +33,6 @@ const AdminForm = props => {
         <Button
           variant="contained"
           size="large"
-          color={props.color}
           style={{ width: "35rem" }}
           className={classes.button}
         >

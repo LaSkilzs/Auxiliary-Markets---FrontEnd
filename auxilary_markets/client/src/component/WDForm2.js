@@ -46,7 +46,6 @@ const WDForm2 = props => {
           <Button
             variant="contained"
             size="large"
-            color={""}
             style={{ width: "35rem" }}
             className={classes.button}
           >
@@ -56,7 +55,6 @@ const WDForm2 = props => {
           <Button
             variant="contained"
             size="large"
-            color={props.color}
             style={{ width: "35rem" }}
             className={classes.button2}
           >

@@ -18,12 +18,7 @@ const ExchangeButton = props => {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Button
-        variant="contained"
-        size="large"
-        color=""
-        className={classes.root}
-      >
+      <Button variant="contained" size="large" className={classes.root}>
         Exchange
       </Button>
     </React.Fragment>

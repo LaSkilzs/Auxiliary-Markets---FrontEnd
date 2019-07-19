@@ -118,7 +118,6 @@ const CreateAsset = props => {
           <Button
             variant="contained"
             size="large"
-            color={props.color}
             style={{ width: "35rem", marginTop: 30 }}
             className={classes.button}
           >

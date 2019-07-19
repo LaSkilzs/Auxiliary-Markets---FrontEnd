@@ -87,7 +87,6 @@ const CreateExchange = props => {
           <Button
             variant="contained"
             size="large"
-            color={props.color}
             style={{ width: "50rem", marginTop: 30 }}
             className={classes.button}
           >

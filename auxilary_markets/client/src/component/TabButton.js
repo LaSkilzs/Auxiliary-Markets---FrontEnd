@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     padding: ".5rem",
     marginTop: "1.2rem",
     marginLeft: "3rem",
-    backgroundColor: primary,
+    background: primary,
     color: "white",
     fontWeight: "bold"
   }
