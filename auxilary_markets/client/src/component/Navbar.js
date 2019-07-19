@@ -1,18 +1,22 @@
 import React from "react";
 import { AppBar, makeStyles, Typography } from "@material-ui/core";
+import blueGrey from "@material-ui/core/colors/blueGrey";
+import sidenav from "../container/css/sidenav.css";
 
-const drawerWidth = 160;
+const drawerWidth = 260;
+const primary = blueGrey[900];
 
 const useStyles = makeStyles(theme => ({
   navbar: {
-    background: "red",
+    background: primary,
     position: "fixed",
     width: `calc(100% - ${drawerWidth}px)`,
     padding: "1.3rem"
   },
   title: {
     display: "flex",
-    fontSize: "1.3rem"
+    fontSize: "2.3rem",
+    fontStyle: "italic"
   },
   header: {
     display: "flex",
@@ -28,14 +32,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Navbar = () => {
+const Navbar = props => {
   let classes = useStyles();
   return (
     <div>
       <AppBar className={classes.navbar}>
         <div className={classes.header}>
           <Typography className={classes.title}>
-            Crypto Arbitrage Marketplace
+            Crypto Asset Marketplace
           </Typography>
           <div className={classes.icons}>
             <i className="material-icons">email</i>

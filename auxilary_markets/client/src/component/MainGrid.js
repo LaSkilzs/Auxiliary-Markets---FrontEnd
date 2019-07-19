@@ -6,12 +6,12 @@ import Grid from "@material-ui/core/Grid";
 const useStyles = makeStyles(theme => ({
   grid: {
     marginTop: 100,
-    marginLeft: 200,
+    marginLeft: 260,
     width: "80rem"
   },
   subGrid: {
     marginTop: 60,
-    marginLeft: 200,
+    marginLeft: 260,
     width: "80rem"
   }
 }));
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 const MainGrid = props => {
   const classes = useStyles();
   const { address, weiBalance, ethBalance } = props.userInfo.userInfo;
-  // console.log(props.userInfo.address);
+
   return (
     <React.Fragment>
       <Grid container spacing={3} className={classes.grid}>
@@ -41,9 +41,6 @@ const MainGrid = props => {
             <h4>{ethBalance}</h4>
           </Paper>
         </Grid>
-        {/* <Grid item xs={3}>
-          <Paper style={{ height: "10vh" }}>Revenue this year</Paper>
-        </Grid> */}
         <Grid item xs={9}>
           <Paper style={{ height: "50vh" }}>Zap Chart</Paper>
         </Grid>

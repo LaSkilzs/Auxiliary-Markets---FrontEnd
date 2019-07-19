@@ -1,15 +1,16 @@
 import React from "react";
-import InfoGrid from "../component/InfoGrid";
-import ExchangeGrid from "../component/ExchangeGrid";
-import ExchangeButton from "../component/ExchangeButton";
+import { makeStyles } from "@material-ui/core/styles";
 
-const displayTabs = ["Ether", "Zap", "ZapTokens", "Assets"];
-const Wallet = () => {
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginTop: 200
+  }
+}));
+const Wallet = props => {
+  const classes = useStyles();
   return (
     <div>
-      <InfoGrid tabs={displayTabs} showButton={false} />
-      <ExchangeGrid />
-      <ExchangeButton />
+      <h1 className={classes.root}>Wallet</h1>
     </div>
   );
 };

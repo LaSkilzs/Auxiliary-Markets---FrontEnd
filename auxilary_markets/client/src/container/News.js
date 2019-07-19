@@ -6,14 +6,13 @@ const useStyles = makeStyles(theme => ({
     marginTop: 200
   }
 }));
-
-const Watchlist = props => {
+const News = props => {
   const classes = useStyles();
   return (
     <div>
-      <h1 className={classes.root}>Watchlist</h1>
+      <h1 className={classes.root}>News!!!!!!</h1>
     </div>
   );
 };
 
-export default Watchlist;
+export default News;

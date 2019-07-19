@@ -14,7 +14,7 @@ class API {
     const data = await response.json();
     let result = [];
     let currencies = data;
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 10; i++) {
       result.push(currencies[i]);
     }
     console.log(result);
