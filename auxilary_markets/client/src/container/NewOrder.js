@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 const NewOrder = props => {
   const classes = useStyles();
   return (
-    <div>
+    <React.Fragment>
       <Typography
         variant="h3"
         style={{ marginTop: 150, marginLeft: 280, textAlign: "left" }}
@@ -82,7 +82,7 @@ const NewOrder = props => {
           </Paper>
         </Grid>
       </Grid>
-    </div>
+    </React.Fragment>
   );
 };
 

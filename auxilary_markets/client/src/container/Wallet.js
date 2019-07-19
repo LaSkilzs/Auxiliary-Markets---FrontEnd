@@ -28,21 +28,21 @@ const Wallet = props => {
         <Grid item xs={4}>
           <Paper style={{ height: "10vh" }}>
             <div>
-              <h2 style={{ color: primary }}>Account Balance</h2>
-              <h1>{address || 0}</h1>
+              <h2 style={{ color: primary }}>Account</h2>
+              <h4>{address || 0}</h4>
             </div>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper style={{ height: "10vh" }}>
             <h2 style={{ color: primary }}>Balance in Wei </h2>
-            <h1>{weiBalance || 0}</h1>
+            <h4>{weiBalance || 0}</h4>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper style={{ height: "10vh" }}>
             <h2 style={{ color: primary }}>Balance in Ether</h2>
-            <h1>{ethBalance || 0}</h1>
+            <h4>{ethBalance || 0}</h4>
           </Paper>
         </Grid>
         <Grid item xs={9}>

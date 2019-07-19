@@ -1,30 +1,49 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: "50rem",
-    margin: "auto",
-    fontSize: "1.3rem",
-    marginTop: "3rem",
-    marginLeft: 280
+class SearchBox extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      search: ""
+    };
   }
-}));
 
-const SearchBox = props => {
-  const classes = useStyles();
-  return (
-    <React.Fragment>
-      <TextField
-        className={classes.root}
-        label="Search for Asset by Name or Symbol"
-        margin="normal"
-        variant="outlined"
-        fullWidth
-      />
-    </React.Fragment>
-  );
-};
+  handleSearch = word => this.setState({ search: word });
+  handleEnter = enter => {
+    if (enter === "Enter") {
+      this.handleSubmit();
+      this.setState({ search: "" });
+    }
+  };
+  handleSubmit = () => {
+    const search = this.state;
+    console.log(search);
+    // Info for seach contract
+  };
+  render() {
+    return (
+      <React.Fragment>
+        <TextField
+          style={{
+            width: "50rem",
+            margin: "auto",
+            fontSize: "1.3rem",
+            marginTop: "3rem",
+            marginLeft: 280
+          }}
+          label="Search for Asset by Name or Symbol"
+          margin="normal"
+          variant="outlined"
+          name={"search"}
+          value={this.state.search}
+          onKeyPress={e => this.handleEnter(e.key)}
+          onChange={e => this.handleSearch(e.target.value)}
+          fullWidth
+        />
+      </React.Fragment>
+    );
+  }
+}
 
 export default SearchBox;

@@ -6503,10 +6503,16 @@
       "links": {},
       "address": "0xc8B4Bea879EaeD34DdC016933E197D274C3bAdab",
       "transactionHash": "0x8617b558ad862f9ed08cad3e34f292d9ad003204eedd654544d93fe74caeae78"
+    },
+    "1563557227103": {
+      "events": {},
+      "links": {},
+      "address": "0xD22e49Afa52589df1c5c1e13750a0480978c463B",
+      "transactionHash": "0x97b332aac8bbd97ea722c4d22b382eff9dc66500023ac5611b06896a9c7821f1"
     }
   },
   "schemaVersion": "3.0.9",
-  "updatedAt": "2019-07-17T16:38:51.331Z",
+  "updatedAt": "2019-07-19T17:27:19.470Z",
   "devdoc": {
     "methods": {}
   },

@@ -23,7 +23,11 @@ const useStyles = makeStyles(theme => ({
 }));
 const Admin = props => {
   const classes = useStyles();
-  const { address, weiBalance, ethBalance } = props.userInfo.userInfo;
+  const {
+    adminAddress,
+    adminWeiBalance,
+    adminEthBalance
+  } = props.adminInfo.adminInfo;
 
   return (
     <React.Fragment>
@@ -31,19 +35,19 @@ const Admin = props => {
         <Grid item xs={4}>
           <Paper style={{ height: "10vh" }}>
             <h2 className={classes.h1}>Exchange Token Balance</h2>
-            <h1>{address || 0}</h1>
+            <h4>{adminAddress || 0}</h4>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper style={{ height: "10vh" }}>
             <h2 className={classes.h1}>Exchange Balance in Wei </h2>
-            <h1>{weiBalance || 0}</h1>
+            <h4>{adminWeiBalance || 0}</h4>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper style={{ height: "10vh" }}>
             <h2 className={classes.h1}>Exchange Balance in Ether</h2>
-            <h1>{ethBalance || 0}</h1>
+            <h4>{adminEthBalance || 0}</h4>
           </Paper>
         </Grid>
         <Grid item xs={9}>
