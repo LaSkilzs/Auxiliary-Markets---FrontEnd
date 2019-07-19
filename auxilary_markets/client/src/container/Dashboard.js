@@ -7,8 +7,8 @@ import NewOrder from "./NewOrder";
 import MoneyMarket from "./MoneyMarket";
 import Watchlist from "./Watchlist";
 import News from "./News";
-import Admin from "./Admin";
 import Portfolio from "./Portfolio";
+import Admin from "./Admin";
 import TokenExchange from "./TokenExchange";
 import Wallet from "./Wallet";
 import TokenManagement from "./TokenManagement";
@@ -19,15 +19,29 @@ import NewExchangeAccount from "./NewExchangeAccount";
 class Dashboard extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      showSignUp: false
+    };
   }
 
+  handleSignup = () => this.setState({ showSignUp: !this.state.showSignUp });
+
   render() {
+    console.log(this.state.showSignUp);
     return (
       <React.Fragment>
         <SideNav />
         <Switch>
-          <Route path="/home" component={MainGrid} />
+          <Route
+            path="/home"
+            render={routerProps => (
+              <MainGrid
+                showSignUp={this.state.showSignUp}
+                handleSignup={this.handleSignup}
+                {...routerProps}
+              />
+            )}
+          />
           <Route path="/exchange" component={Exchange} />
           <Route
             path="/wallet"

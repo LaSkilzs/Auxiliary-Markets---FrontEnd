@@ -31,19 +31,19 @@ const Admin = props => {
         <Grid item xs={4}>
           <Paper style={{ height: "10vh" }}>
             <h2 className={classes.h1}>Exchange Token Balance</h2>
-            <h4>{address}</h4>
+            <h1>{address || 0}</h1>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper style={{ height: "10vh" }}>
             <h2 className={classes.h1}>Exchange Balance in Wei </h2>
-            <h4>{weiBalance}</h4>
+            <h1>{weiBalance || 0}</h1>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper style={{ height: "10vh" }}>
             <h2 className={classes.h1}>Exchange Balance in Ether</h2>
-            <h4>{ethBalance}</h4>
+            <h1>{ethBalance || 0}</h1>
           </Paper>
         </Grid>
         <Grid item xs={9}>
