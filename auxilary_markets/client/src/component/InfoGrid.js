@@ -41,7 +41,7 @@ const InfoGrid = props => {
                     <Grid item md={4}>
                       <TabButton
                         name={header}
-                        color={"secondary"}
+                        color={""}
                         handleClick={props.handleClick}
                       />
                     </Grid>

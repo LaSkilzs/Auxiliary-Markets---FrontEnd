@@ -5,11 +5,6 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import WDForm1 from "../component/WDForm1";
 import WDForm2 from "../component/WDForm2";
-import red from "@material-ui/core/colors/red";
-import green from "@material-ui/core/colors/green";
-
-const secondary = green[600];
-const primary = red[700];
 
 const useStyles = makeStyles(theme => ({
   grid: {
@@ -63,13 +58,13 @@ const TokenExchange = props => {
         <Grid item md={6}>
           <Paper className={classes.paper}>
             <h2 style={{ padding: 20 }}>Deposit Token</h2>
-            <WDForm2 btnName={"Deposit Token"} color={secondary} />
+            <WDForm2 btnName={"Deposit Token"} color={""} />
           </Paper>
         </Grid>
         <Grid item md={6}>
           <Paper className={classes.paper}>
             <h2 style={{ padding: 20 }}>Withdraw Token</h2>
-            <WDForm2 btnName={"Withdraw Token"} color={primary} />
+            <WDForm2 btnName={"Withdraw Token"} color={""} />
           </Paper>
         </Grid>
       </Grid>
@@ -77,13 +72,13 @@ const TokenExchange = props => {
         <Grid item md={6}>
           <Paper className={classes.paper2}>
             <h2 style={{ padding: 20 }}>Deposit Ether</h2>
-            <WDForm1 btnName={"Deposit Ether"} color={secondary} />
+            <WDForm1 btnName={"Deposit Ether"} color={""} />
           </Paper>
         </Grid>
         <Grid item md={6}>
           <Paper className={classes.paper2}>
             <h2 style={{ padding: 20 }}>Withdraw Ether</h2>
-            <WDForm1 btnName={"Withdraw Ether"} color={primary} />
+            <WDForm1 btnName={"Withdraw Ether"} color={""} />
           </Paper>
         </Grid>
       </Grid>

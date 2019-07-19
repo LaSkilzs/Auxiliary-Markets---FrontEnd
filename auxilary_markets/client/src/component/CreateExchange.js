@@ -10,11 +10,9 @@ import green from "@material-ui/core/colors/green";
 const primary = green[600];
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    marginLeft: 100
-  },
+  root: {},
   paper: {
-    marginTop: 100,
+    marginTop: 80,
     height: "55rem"
   },
   button: {
@@ -22,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const CreateAsset = props => {
+const CreateExchange = props => {
   const classes = useStyles();
   return (
     <Grid container spacing={3} className={classes.root}>
@@ -32,13 +30,13 @@ const CreateAsset = props => {
           component={"h4"}
           style={{ padding: "5rem", margin: "auto", marginTop: 20 }}
         >
-          Create New Token
+          Create New Exchange Account
         </Typography>
-        <form noValidate autoComplete="off">
+        <form noValidate autoComplete="off" style={{ marginLeft: 280 }}>
           <TextField
-            label="Symbol"
-            style={{ margin: 8, width: "35rem" }}
-            placeholder="e.g.BTC"
+            label="name of exchange"
+            style={{ margin: 8, width: "50rem" }}
+            placeholder="e.g.Cryto Currencies"
             margin="normal"
             variant="outlined"
             InputLabelProps={{
@@ -46,9 +44,9 @@ const CreateAsset = props => {
             }}
           />
           <TextField
-            label="Asset Name"
-            style={{ margin: 8, width: "35rem" }}
-            placeholder="e.g.Bitcoin"
+            label="Mnemonic Phrase"
+            style={{ margin: 8, width: "50rem" }}
+            placeholder="e.g.apple run go by the see or elephant moves for free in the tree"
             margin="normal"
             variant="outlined"
             InputLabelProps={{
@@ -56,9 +54,9 @@ const CreateAsset = props => {
             }}
           />
           <TextField
-            label="Units/Tokens"
-            style={{ margin: 8, width: "35rem" }}
-            placeholder="e.g.10"
+            label="Account Address"
+            style={{ margin: 8, width: "50rem" }}
+            placeholder="e.g.0x090808498095420542"
             margin="normal"
             variant="outlined"
             InputLabelProps={{
@@ -66,9 +64,9 @@ const CreateAsset = props => {
             }}
           />
           <TextField
-            label="Market Capitalization"
-            style={{ margin: 8, width: "35rem" }}
-            placeholder="e.g.23748404845"
+            label="email address"
+            style={{ margin: 8, width: "50rem" }}
+            placeholder="e.g.john@goo.com"
             margin="normal"
             variant="outlined"
             InputLabelProps={{
@@ -76,53 +74,24 @@ const CreateAsset = props => {
             }}
           />
           <TextField
-            label="Total Supply"
-            style={{ margin: 8, width: "35rem" }}
-            placeholder="e.g.10000000"
+            label="password"
+            style={{ margin: 8, width: "50rem" }}
+            placeholder="password"
             margin="normal"
             variant="outlined"
             InputLabelProps={{
               shrink: true
             }}
           />
-          <TextField
-            label="Circulating_Supply"
-            style={{ margin: 8, width: "35rem" }}
-            placeholder="e.g.25000"
-            margin="normal"
-            variant="outlined"
-            InputLabelProps={{
-              shrink: true
-            }}
-          />
-          <TextField
-            label="Highest Price"
-            style={{ margin: 8, width: "35rem" }}
-            placeholder="e.g.25.00"
-            margin="normal"
-            variant="outlined"
-            InputLabelProps={{
-              shrink: true
-            }}
-          />
-          <TextField
-            label="Price"
-            style={{ margin: 8, width: "35rem" }}
-            placeholder="e.g.20.00"
-            margin="normal"
-            variant="outlined"
-            InputLabelProps={{
-              shrink: true
-            }}
-          />
+
           <Button
             variant="contained"
             size="large"
             color={props.color}
-            style={{ width: "35rem", marginTop: 30 }}
+            style={{ width: "50rem", marginTop: 30 }}
             className={classes.button}
           >
-            Create Asset Token
+            Create Exchange
           </Button>
         </form>
       </Paper>
@@ -130,4 +99,4 @@ const CreateAsset = props => {
   );
 };
 
-export default CreateAsset;
+export default CreateExchange;
