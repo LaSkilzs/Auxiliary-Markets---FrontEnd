@@ -54,13 +54,13 @@ const NewOrder = props => {
         <Grid item md={6}>
           <Paper className={classes.paper}>
             <h2>Buy Token</h2>
-            <Form btnName={"Buy Token"} color={"#388e3c"} />
+            <Form btnName={"Buy Token"} color={""} />
           </Paper>
         </Grid>
         <Grid item md={6}>
           <Paper className={classes.paper}>
             <h2>Sell Token</h2>
-            <Form btnName={"Sell Token"} color={"#d32f2f"} />
+            <Form btnName={"Sell Token"} color={""} />
           </Paper>
         </Grid>
       </Grid>

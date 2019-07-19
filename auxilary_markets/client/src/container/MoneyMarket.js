@@ -6,11 +6,11 @@ import ExchangeButton from "../component/ExchangeButton";
 const displayTabs = ["Ether", "Zap", "ZapTokens", "Assets"];
 const MoneyMarket = props => {
   return (
-    <div>
+    <React.Fragment>
       <InfoGrid tabs={displayTabs} showButton={false} />
       <ExchangeGrid />
       <ExchangeButton />
-    </div>
+    </React.Fragment>
   );
 };
 

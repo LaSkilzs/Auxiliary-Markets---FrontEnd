@@ -27,14 +27,14 @@ class Dashboard extends React.Component {
       <React.Fragment>
         <SideNav />
         <Switch>
+          <Route path="/home" component={MainGrid} />
+          <Route path="/exchange" component={Exchange} />
           <Route
-            path="/home"
+            path="/wallet"
             render={routerProps => (
-              <MainGrid userInfo={this.props} {...routerProps} />
+              <Wallet userInfo={this.props} {...routerProps} />
             )}
           />
-          <Route path="/exchange" component={Exchange} />
-          <Route path="/wallet" component={Wallet} />
           <Route path="/money_market" component={MoneyMarket} />
           <Route path="/token_exchange" component={TokenExchange} />
           <Route path="/token_management" component={TokenManagement} />
@@ -42,7 +42,12 @@ class Dashboard extends React.Component {
           <Route path="/news" component={News} />
           <Route path="/watchlist" component={Watchlist} />
           <Route path="/portfolio" component={Portfolio} />
-          <Route path="/admin" component={Admin} />
+          <Route
+            path="/admin"
+            render={routerProps => (
+              <Admin userInfo={this.props} {...routerProps} />
+            )}
+          />
           <Route path="/exchange_management" component={ExchangeManagement} />
           <Route path="/new_asset" component={NewAsset} />
           <Route path="/new_account" component={NewExchangeAccount} />

@@ -1,10 +1,26 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import green from "@material-ui/core/colors/green";
+import red from "@material-ui/core/colors/red";
+
+const primary = green[600];
+const secondary = red[700];
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    background: primary
+  },
+  button2: {
+    background: secondary
+  }
+}));
 
 const WDForm2 = props => {
+  const classes = useStyles();
   return (
-    <div>
+    <React.Fragment>
       <form noValidate autoComplete="off">
         <TextField
           label="Symbol Name"
@@ -26,16 +42,29 @@ const WDForm2 = props => {
             shrink: true
           }}
         />
-        <Button
-          variant="contained"
-          size="large"
-          color={props.color}
-          style={{ width: "35rem" }}
-        >
-          {props.btnName}
-        </Button>
+        {props.btnName.includes("Deposit") ? (
+          <Button
+            variant="contained"
+            size="large"
+            color={""}
+            style={{ width: "35rem" }}
+            className={classes.button}
+          >
+            {props.btnName}
+          </Button>
+        ) : (
+          <Button
+            variant="contained"
+            size="large"
+            color={props.color}
+            style={{ width: "35rem" }}
+            className={classes.button2}
+          >
+            {props.btnName}
+          </Button>
+        )}
       </form>
-    </div>
+    </React.Fragment>
   );
 };
 

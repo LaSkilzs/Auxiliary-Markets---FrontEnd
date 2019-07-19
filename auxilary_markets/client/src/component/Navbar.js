@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar, makeStyles, Typography } from "@material-ui/core";
 import blueGrey from "@material-ui/core/colors/blueGrey";
-import sidenav from "../container/css/sidenav.css";
+import "../container/css/sidenav.css";
 
 const drawerWidth = 260;
 const primary = blueGrey[900];

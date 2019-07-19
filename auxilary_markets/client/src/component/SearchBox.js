@@ -18,7 +18,7 @@ const SearchBox = props => {
     <React.Fragment>
       <TextField
         className={classes.root}
-        label="Search for Asset By Name"
+        label="Search for Asset by Name or Symbol"
         margin="normal"
         variant="outlined"
         fullWidth

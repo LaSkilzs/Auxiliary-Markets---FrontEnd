@@ -1,8 +1,19 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import green from "@material-ui/core/colors/green";
+import { makeStyles } from "@material-ui/core/styles";
+
+const primary = green[600];
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    background: primary
+  }
+}));
 
 const AdminForm1 = props => {
+  const classes = useStyles();
   return (
     <div>
       <form noValidate autoComplete="off">
@@ -21,8 +32,9 @@ const AdminForm1 = props => {
         <Button
           variant="contained"
           size="large"
-          color={props.color}
+          color={primary}
           style={{ width: "35rem" }}
+          className={classes.button}
         >
           {props.btnName}
         </Button>
