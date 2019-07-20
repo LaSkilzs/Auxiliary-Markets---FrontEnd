@@ -32,7 +32,7 @@ class Exchange extends React.Component {
       "Crypto-Currency",
       "Equites & Options",
       "Futures",
-      "Foreign Exchange"
+      "Asset Tokens"
     ];
     return (
       <React.Fragment>
