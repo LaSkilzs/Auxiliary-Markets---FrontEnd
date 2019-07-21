@@ -1,31 +1,31 @@
 pragma solidity ^0.5.0;
 
-import "./ERC20Interface.sol";
-
-contract ERC20Token is ERC20Interface {
-   string public name;
+contract ERC20Token  {
+    string public name;
     string public symbol;
-    uint8 public decimals = 10;
-    uint256 _totalSupply;
+    uint256 public totalSupply;
+    address admin;
 
-    mapping(address => uint) public balances;
+    mapping(address => uint256) public balances;
     mapping(address => mapping(address => uint)) public allowed;
 
-    constructor(string memory _name, string memory _symbol)  public {
+    event Transfer(address indexed from, address indexed to, uint tokens);
+    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+
+    constructor(string memory _name, string memory _symbol, uint256 initialSupply)  public {
         name = _name;
         symbol = _symbol;
+        totalSupply = initialSupply;
+        admin = msg.sender;
+        balances[msg.sender] += totalSupply;
     }
 
     function addTotalSupply(address tokenContract, uint amountOfTokens) external  {
         require(tokenContract != address(0), "Not valid addrress");
-        _totalSupply += amountOfTokens;
+        totalSupply += amountOfTokens;
     }
 
-    function totalSupply() external view returns(uint) {
-        return _totalSupply;
-    }
-
-    function balanceOf(address owner) external view returns(uint){
+    function balanceOf(address owner) public view returns(uint){
         return balances[owner];
     }
 
@@ -38,12 +38,12 @@ contract ERC20Token is ERC20Interface {
     }
 
     function transferFrom(address from, address to, uint tokens) external  returns(bool success){
-        uint allowance = allowed[from][msg.sender];
-        require(balances[msg.sender] >= tokens && allowance >= tokens,"not Enough to make transfer");
-        allowed[from][msg.sender] -= tokens;
-        balances[msg.sender] -= tokens;
+       require(tokens <= balances[from], 'transfer can not be greater than balance');
+       require(tokens <= allowed[from][msg.sender], 'transfer can not be greater than amount');
+        balances[from] -= tokens;
         balances[to] += tokens;
-        emit Transfer(msg.sender, to, tokens);
+        allowed[from][msg.sender] -= tokens;
+        emit Transfer(from, to, tokens);
         return true;
     }
 
