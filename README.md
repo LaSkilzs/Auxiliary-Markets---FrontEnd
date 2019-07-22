@@ -7,7 +7,7 @@
 
 
 ## Deliverables
-  1. Exchange
+  1. Exchange -- execute trade based on some information given from the Oracle Smart Contract
     a. list of available assets for (buy/sell)
     b. Ledger of all order transactions
     c. Ledger of all bid/ask orders
